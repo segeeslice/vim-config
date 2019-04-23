@@ -20,6 +20,7 @@ nnoremap <C-K> :m +1<CR>
 noremap <C-w>t :NERDTreeToggle<CR>
 noremap <C-w>f :NERDTreeFocus<CR>
 noremap - :Files<CR>
+" :MarkDownPreview and :MarkDownPreviewStop
 
 " --- OTHER PREFERENCES ---
 
@@ -27,11 +28,15 @@ noremap - :Files<CR>
 " Also enables smarttab to tab to previous line if applicable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" Ensure encoding is properly set (mainly for Windows)
+" Required by YouCompleteMe
+set encoding=utf-8
+
 " --- PLUGIN STUFF ---
 
 " Enable plugins installed from v-plugged
 " Should be installed upon insertion via :PlugInstall
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/AppData/Local/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'       " File tree
 Plug 'sophacles/vim-processing'  " Processing lang support
@@ -43,13 +48,15 @@ Plug 'tpope/vim-surround'        " Change brackets and things
 Plug 'scrooloose/nerdcommenter'  " Commenting help
 " Plug 'scrooloose/syntastic'      " Linter
 Plug 'terryma/vim-multiple-cursors'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Better status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " NOTE: Must be compiled separately
-Plug 'valloric/youcompleteme'   " Auto-completion
+" I have to install visual studio to get it to work on Windows? Whaaaa
+" Plug 'valloric/youcompleteme'   " Auto-completion
 
 " File searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
