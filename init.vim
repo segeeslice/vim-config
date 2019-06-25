@@ -6,21 +6,38 @@ noremap l k
 noremap k j
 noremap j h
 
+" Re-add ; usage
+noremap h ;
+
 " Fix up window movement
 nnoremap <C-w>; <C-w>l
 nnoremap <C-w>l <C-w>k
 nnoremap <C-w>k <C-w>j
 nnoremap <C-w>j <C-w>h
 
+nnoremap <C-w>: <C-w>L
+nnoremap <C-w>L <C-w>K
+nnoremap <C-w>K <C-w>J
+nnoremap <C-w>J <C-w>H
+
 " Add line movement ease of use
 nnoremap <C-L> :m -2<CR>
 nnoremap <C-K> :m +1<CR>
+
+vnoremap <C-L> :m '<-2<CR>gv
+vnoremap <C-K> :m '>+1<CR>gv
+
+inoremap <C-L> <ESC>:m -2<CR>gi
+inoremap <C-K> <ESC>:m +1<CR>gi
 
 " Add plugin remaps
 noremap <C-w>t :NERDTreeToggle<CR>
 noremap <C-w>f :NERDTreeFocus<CR>
 noremap - :Files<CR>
 " :MarkDownPreview and :MarkDownPreviewStop
+
+" Grep for item under cursor
+map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 
 " --- OTHER PREFERENCES ---
 
@@ -31,6 +48,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Ensure encoding is properly set (mainly for Windows)
 " Required by YouCompleteMe
 set encoding=utf-8
+
+" Ignore case on searches by default
+set ic
 
 " --- PLUGIN STUFF ---
 
