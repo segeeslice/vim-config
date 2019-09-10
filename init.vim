@@ -61,7 +61,7 @@ set encoding=utf-8
 
 " Enable plugins installed from v-plugged
 " Should be installed upon insertion via :PlugInstall
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'       " File tree
 Plug 'sophacles/vim-processing'  " Processing lang support
