@@ -21,14 +21,17 @@ nnoremap <C-w>K <C-w>J
 nnoremap <C-w>J <C-w>H
 
 " Add line movement ease of use
-nnoremap <C-L> :m -2<CR>
-nnoremap <C-K> :m +1<CR>
+nnoremap <C-K> :m .+1<CR>==
+nnoremap <C-L> :m .-2<CR>==
+inoremap <C-K> <Esc>:m .+1<CR>==gi
+inoremap <C-L> <Esc>:m .-2<CR>==gi
+vnoremap <C-K> :m '>+1<CR>gv=gv
+vnoremap <C-L> :m '<-2<CR>gv=gv
 
-vnoremap <C-L> :m '<-2<CR>gv
-vnoremap <C-K> :m '>+1<CR>gv
 
-inoremap <C-L> <ESC>:m -2<CR>gi
-inoremap <C-K> <ESC>:m +1<CR>gi
+" Change merge line shortcut
+" (Overwrites help manual thing)
+noremap K J
 
 " Add plugin remaps
 noremap <C-w>t :NERDTreeToggle<CR>
@@ -40,7 +43,6 @@ noremap - :Files<CR>
 map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 
 " --- OTHER PREFERENCES ---
-
 " Change tabs to just insert 4 spaces
 " Also enables smarttab to tab to previous line if applicable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -49,8 +51,11 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Required by YouCompleteMe
 set encoding=utf-8
 
-" Ignore case on searches by default
-set ic
+" Ignore case on searches
+:set ic
+
+" Add line number tracker
+:set nu
 
 " --- PLUGIN STUFF ---
 
@@ -75,7 +80,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " NOTE: Must be compiled separately
-" I have to install visual studio to get it to work on Windows? Whaaaa
 " Plug 'valloric/youcompleteme'   " Auto-completion
 
 " File searching
