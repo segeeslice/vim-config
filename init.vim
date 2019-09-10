@@ -13,8 +13,17 @@ nnoremap <C-w>k <C-w>j
 nnoremap <C-w>j <C-w>h
 
 " Add line movement ease of use
-nnoremap <C-L> :m -2<CR>
-nnoremap <C-K> :m +1<CR>
+nnoremap <C-K> :m .+1<CR>==
+nnoremap <C-L> :m .-2<CR>==
+inoremap <C-K> <Esc>:m .+1<CR>==gi
+inoremap <C-L> <Esc>:m .-2<CR>==gi
+vnoremap <C-K> :m '>+1<CR>gv=gv
+vnoremap <C-L> :m '<-2<CR>gv=gv
+
+
+" Change merge line shortcut
+" (Overwrites help manual thing)
+noremap K J
 
 " Add plugin remaps
 noremap <C-w>t :NERDTreeToggle<CR>
@@ -22,10 +31,16 @@ noremap <C-w>f :NERDTreeFocus<CR>
 noremap - :Files<CR>
 
 " --- OTHER PREFERENCES ---
-
 " Change tabs to just insert 4 spaces
 " Also enables smarttab to tab to previous line if applicable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+
+" Ignore case on searches
+:set ic
+
+" Add line number tracker
+:set nu
 
 " --- PLUGIN STUFF ---
 
@@ -43,13 +58,14 @@ Plug 'tpope/vim-surround'        " Change brackets and things
 Plug 'scrooloose/nerdcommenter'  " Commenting help
 " Plug 'scrooloose/syntastic'      " Linter
 Plug 'terryma/vim-multiple-cursors'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Better status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " NOTE: Must be compiled separately
-Plug 'valloric/youcompleteme'   " Auto-completion
+" Plug 'valloric/youcompleteme'   " Auto-completion
 
 " File searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
