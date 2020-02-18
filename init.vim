@@ -72,7 +72,7 @@ Plug 'jiangmiao/auto-pairs'      " Auto-brackets and things
 Plug 'tpope/vim-surround'        " Change brackets and things
 Plug 'scrooloose/nerdcommenter'  " Commenting help
 " Plug 'scrooloose/syntastic'      " Linter
-Plug 'terryma/vim-multiple-cursors'
+Plug 'leafoftree/vim-vue-plugin' " Vue language support
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Better status line
