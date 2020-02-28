@@ -57,6 +57,9 @@ set encoding=utf-8
 " Add line number tracker
 :set nu
 
+" Auto-remove trailing white space on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " --- PLUGIN STUFF ---
 
 " Enable plugins installed from v-plugged
@@ -105,5 +108,5 @@ autocmd VimEnter * AirlineTheme gruvbox
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg=#928374
 
-" Auto-remove trailing white space on save
-autocmd BufWritePre * :%s/\s\+$//e
+" Configure fzf to use silver server (respects gitignores)
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
