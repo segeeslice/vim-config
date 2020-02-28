@@ -45,7 +45,7 @@ map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 " --- OTHER PREFERENCES ---
 " Change tabs to just insert 4 spaces
 " Also enables smarttab to tab to previous line if applicable
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " Ensure encoding is properly set (mainly for Windows)
 " Required by YouCompleteMe
@@ -73,7 +73,8 @@ Plug 'tpope/vim-surround'        " Change brackets and things
 Plug 'scrooloose/nerdcommenter'  " Commenting help
 " Plug 'scrooloose/syntastic'      " Linter
 Plug 'leafoftree/vim-vue-plugin' " Vue language support
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'stephpy/vim-yaml'          " YAML language support
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview'  }
 
 " Better status line
 Plug 'vim-airline/vim-airline'
