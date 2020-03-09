@@ -60,23 +60,34 @@ set encoding=utf-8
 " Auto-remove trailing white space on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" --- PLUGIN STUFF ---
+" --- PLUGIN IMPORT ---
 
 " Enable plugins installed from v-plugged
 " Should be installed upon insertion via :PlugInstall
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'scrooloose/nerdtree'       " File tree
-Plug 'sophacles/vim-processing'  " Processing lang support
-Plug 'flazz/vim-colorschemes'    " Color options
-Plug 'morhetz/gruvbox'           " gruvbox
-Plug 'airblade/vim-gitgutter'    " Git tracker
-Plug 'jiangmiao/auto-pairs'      " Auto-brackets and things
-Plug 'tpope/vim-surround'        " Change brackets and things
-Plug 'scrooloose/nerdcommenter'  " Commenting help
-" Plug 'scrooloose/syntastic'      " Linter
-Plug 'leafoftree/vim-vue-plugin' " Vue language support
-Plug 'stephpy/vim-yaml'          " YAML language support
+Plug 'scrooloose/nerdtree'           " File tree
+Plug 'xuyuanp/nerdtree-git-plugin'   " Show git changes in file tree
+Plug 'airblade/vim-gitgutter'        " Git gutter showing changes
+" TODO: Fix these or find one that works :(
+" Plug 'iberianpig/tig-explorer.vim'   " In-line TIG explorer
+" Plug 'codeindulgence/vim-tig'        " In-line TIG explorer attempt 2
+Plug 'rbgrouleff/bclose.vim'         " Dependency of tig-explorer
+Plug 'flazz/vim-colorschemes'        " Color options
+Plug 'morhetz/gruvbox'               " Gruvbox theme
+" Plug 'yuttie/comfortable-motion.vim' " Smooth scrolling
+Plug 'junegunn/goyo.vim'             " Distraction free vim toggling
+
+Plug 'jiangmiao/auto-pairs'          " Auto-brackets and things
+Plug 'tpope/vim-surround'            " Change brackets and things
+Plug 'scrooloose/nerdcommenter'      " Commenting help
+Plug 'tpope/vim-fugitive'            " Other git utilities
+
+Plug 'sophacles/vim-processing'      " Processing lang support
+Plug 'leafoftree/vim-vue-plugin'     " Vue language support
+Plug 'stephpy/vim-yaml'              " YAML language support
+
+" Markdown preview util
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview'  }
 
 " Better status line
@@ -91,6 +102,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+" --- PLUGIN CONFIGURE ---
 
 " Toggle NERDTREE after vim starts
 " Refocus main window
