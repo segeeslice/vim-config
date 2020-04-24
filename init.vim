@@ -1,4 +1,5 @@
 " --- REMAPS ---
+"  TODO: Ditch shifting all the keys over?...
 
 " Shift movement keys one over
 noremap ; l
@@ -8,6 +9,10 @@ noremap j h
 
 " Re-add ; usage
 noremap h ;
+
+" Shift multi-line movement (due to overflow)
+noremap gl gk
+noremap gk gj
 
 " Fix up window movement
 nnoremap <C-w>; <C-w>l
