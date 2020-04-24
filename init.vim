@@ -42,6 +42,10 @@ noremap - :Files<CR>
 " Grep for item under cursor
 map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 
+" Open new tab remap
+noremap <C-t> :tabedit<CR>
+noremap <C-w>w :tabclose<CR>
+
 " --- OTHER PREFERENCES ---
 " Change tabs to just insert 4 spaces
 " Also enables smarttab to tab to previous line if applicable
@@ -117,9 +121,30 @@ call plug#end()
 autocmd VimEnter * colorscheme gruvbox
 autocmd VimEnter * AirlineTheme gruvbox
 
+" Modify the airline bar
+let g:airline_section_b=''       " Hide all git data
+let g:airline_section_c='%t%m'   " Only show file name and [+] if modified
+let g:airline_section_y=''       " Hide file encoding data
+let g:airline_section_z='%l/%L'  " Only display line count
+
+
 " Set the color scheme of git gutter
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg=#928374
 
 " Configure fzf to use silver server (respects gitignores)
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+" Configure nerd tree git plugin symbols
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "*",
+    \ "Staged"    : "+",
+    \ "Untracked" : "x",
+    \ "Renamed"   : "r",
+    \ "Unmerged"  : "=",
+    \ "Deleted"   : "d",
+    \ "Dirty"     : "~",
+    \ "Clean"     : "-",
+    \ "Ignored"   : "i",
+    \ "Unknown"   : "?"
+    \ }
