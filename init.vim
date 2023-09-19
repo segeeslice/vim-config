@@ -1,48 +1,19 @@
 " --- REMAPS ---
-"  TODO: Ditch shifting all the keys over?...
 
-" Shift movement keys one over
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
-
-" Re-add ; usage
-noremap h ;
-
-" Shift multi-line movement (due to overflow)
-noremap gl gk
-noremap gk gj
-
-" Fix up window movement
-nnoremap <C-w>; <C-w>l
-nnoremap <C-w>l <C-w>k
-nnoremap <C-w>k <C-w>j
-nnoremap <C-w>j <C-w>h
-
-nnoremap <C-w>: <C-w>L
-nnoremap <C-w>L <C-w>K
-nnoremap <C-w>K <C-w>J
-nnoremap <C-w>J <C-w>H
+" TODO: Use space as leader key and use control less
 
 " Add line movement ease of use
-nnoremap <C-K> :m .+1<CR>==
-nnoremap <C-L> :m .-2<CR>==
-inoremap <C-K> <Esc>:m .+1<CR>==gi
-inoremap <C-L> <Esc>:m .-2<CR>==gi
-vnoremap <C-K> :m '>+1<CR>gv=gv
-vnoremap <C-L> :m '<-2<CR>gv=gv
-
-
-" Change merge line shortcut
-" (Overwrites help manual thing)
-noremap K J
+nnoremap <C-J> :m .+1<CR>==
+nnoremap <C-K> :m .-2<CR>==
+inoremap <C-J> <Esc>:m .+1<CR>==gi
+inoremap <C-K> <Esc>:m .-2<CR>==gi
+vnoremap <C-J> :m '>+1<CR>gv=gv
+vnoremap <C-K> :m '<-2<CR>gv=gv
 
 " Add plugin remaps
 noremap <C-w>t :NERDTreeToggle<CR>
 noremap <C-w>f :NERDTreeFocus<CR>
 noremap - :Files<CR>
-" :MarkDownPreview and :MarkDownPreviewStop
 
 " Grep for item under cursor
 map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
@@ -75,15 +46,15 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Should be installed upon insertion via :PlugInstall
 call plug#begin(stdpath('data') . '/plugged')
 
+" TODO: lazygit integration?
+
 Plug 'scrooloose/nerdtree'           " File tree
 Plug 'xuyuanp/nerdtree-git-plugin'   " Show git changes in file tree
 Plug 'airblade/vim-gitgutter'        " Git gutter showing changes
-" TODO: Fix these or find one that works :(
-" Plug 'iberianpig/tig-explorer.vim'   " In-line TIG explorer
-" Plug 'codeindulgence/vim-tig'        " In-line TIG explorer attempt 2
 Plug 'rbgrouleff/bclose.vim'         " Dependency of tig-explorer
 Plug 'flazz/vim-colorschemes'        " Color options
 Plug 'morhetz/gruvbox'               " Gruvbox theme
+" TODO: Look into
 " Plug 'yuttie/comfortable-motion.vim' " Smooth scrolling
 Plug 'junegunn/goyo.vim'             " Distraction free vim toggling
 
@@ -95,6 +66,7 @@ Plug 'tpope/vim-fugitive'            " Other git utilities
 Plug 'sophacles/vim-processing'      " Processing lang support
 Plug 'leafoftree/vim-vue-plugin'     " Vue language support
 Plug 'stephpy/vim-yaml'              " YAML language support
+Plug 'jceb/vim-orgmode'              " Org file support
 
 " Markdown preview util
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview'  }
@@ -131,7 +103,6 @@ let g:airline_section_b=''       " Hide all git data
 let g:airline_section_c='%t%m'   " Only show file name and [+] if modified
 let g:airline_section_y=''       " Hide file encoding data
 let g:airline_section_z='%l/%L'  " Only display line count
-
 
 " Set the color scheme of git gutter
 let g:gitgutter_override_sign_column_highlight = 0
