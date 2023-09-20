@@ -16,6 +16,7 @@ noremap <C-w>f :NERDTreeFocus<CR>
 noremap - :Files<CR>
 
 " Grep for item under cursor
+" TODO: Maybe call ripgrep / fzf for this?
 map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 
 " Open new tab remap
@@ -111,8 +112,8 @@ let g:airline_section_z='%l/%L'  " Only display line count
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg=#928374
 
-" Configure fzf to use silver server (respects gitignores)
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" Configure fzf to use ripgrep (respects gitignores)
+let $FZF_DEFAULT_COMMAND = 'rg --files '
 
 " Configure nerd tree git plugin symbols
 let g:NERDTreeIndicatorMapCustom = {

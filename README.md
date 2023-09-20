@@ -16,8 +16,9 @@ Enjoy :)
 
 ## Pre-requisites
 
-- [The silver surfer](https://github.com/ggreer/the_silver_searcher) installed and added to PATH
+- [ripgrep](https://github.com/BurntSushi/ripgrep) installed and added to PATH
   - Installation details on the site (no easy way to make a script in this repo)
+  - For Windows, is available on `scoop`!
 - `Python` is installed on the machine, with the `neovim` module
   - `pip install neovim`
 
