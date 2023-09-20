@@ -1,6 +1,14 @@
-" --- REMAPS ---
+" --- BASE REMAPS ---
 
-" TODO: Use space as leader key and use control less
+" For now, set leaders to be the same
+let mapleader = " "
+let maplocalleader = " m"
+
+" Shortcut for opening this init.vim
+noremap <LEADER>fvc :e $LOCALAPPDATA/nvim/init.vim<CR>
+
+" Window movement easier movement
+noremap <LEADER>w <C-w>
 
 " Add line movement ease of use
 nnoremap <C-J> :m .+1<CR>==
@@ -10,18 +18,25 @@ inoremap <C-K> <Esc>:m .-2<CR>==gi
 vnoremap <C-J> :m '>+1<CR>gv=gv
 vnoremap <C-K> :m '<-2<CR>gv=gv
 
-" Add plugin remaps
-noremap <C-w>t :NERDTreeToggle<CR>
-noremap <C-w>f :NERDTreeFocus<CR>
-noremap - :Files<CR>
-
 " Grep for item under cursor
 " TODO: Maybe call ripgrep / fzf for this?
 map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 
 " Open new tab remap
-noremap <C-t> :tabedit<CR>
-noremap <C-w>w :tabclose<CR>
+noremap <LEADER>wt :tabedit<CR>
+noremap <LEADER>ww :tabclose<CR>
+
+" --- PLUGIN REMAPS ---
+"
+noremap <LEADER>wt :NERDTreeToggle<CR>
+noremap <LEADER>wf :NERDTreeFocus<CR>
+noremap <LEADER>ff :Files<CR>
+noremap <LEADER>fg :Rg<CR>
+
+" Markdown preview, when in markdown files
+" TODO: May have to research how to make this a bit more graceful when
+" handling multiple file types, etc.
+autocmd FileType markdown map <LOCALLEADER>p :MarkdownPreviewToggle<CR>
 
 " --- OTHER PREFERENCES ---
 " Change tabs to just insert 4 spaces
