@@ -42,6 +42,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " --- PLUGIN IMPORT ---
 
+" TODO: Look into Lazy.vim as an alternative to VimPlug?
+
 " Enable plugins installed from v-plugged
 " Should be installed upon insertion via :PlugInstall
 call plug#begin(stdpath('data') . '/plugged')
@@ -61,7 +63,8 @@ Plug 'junegunn/goyo.vim'             " Distraction free vim toggling
 Plug 'jiangmiao/auto-pairs'          " Auto-brackets and things
 Plug 'tpope/vim-surround'            " Change brackets and things
 Plug 'scrooloose/nerdcommenter'      " Commenting help
-Plug 'tpope/vim-fugitive'            " Other git utilities
+Plug 'tpope/vim-fugitive'            " Git utilities
+Plug 'tpope/vim-speeddating'         " Date utilities; prerequisite for vim-orgmode
 
 Plug 'sophacles/vim-processing'      " Processing lang support
 Plug 'leafoftree/vim-vue-plugin'     " Vue language support
