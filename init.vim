@@ -131,7 +131,7 @@ highlight SignColumn guibg=#928374
 let $FZF_DEFAULT_COMMAND = 'rg --files '
 
 " Configure nerd tree git plugin symbols
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "*",
     \ "Staged"    : "+",
     \ "Untracked" : "x",
