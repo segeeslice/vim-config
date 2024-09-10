@@ -39,8 +39,8 @@ vnoremap <C-K> :m '<-2<CR>gv=gv
 map <F4> :execute "vimgrep /" . expand ("<cword>") . "/j **" <Bar> cw<CR>
 
 " Open new tab remap
-noremap <LEADER>wt :tabedit<CR>
-noremap <LEADER>ww :tabclose<CR>
+noremap <LEADER>tn :tabedit<CR>
+noremap <LEADER>tc :tabclose<CR>
 
 " --- PLUGIN REMAPS ---
 "
