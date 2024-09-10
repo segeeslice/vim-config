@@ -1,3 +1,15 @@
+" --- PLATFORM DETECTION --
+
+if !exists('g:platform')
+  if has('win64') || has('win32') || has('win16')
+    let g:platform = 'WINDOWS'
+  elseif has('mac')
+    let g:platform = 'MAC'
+  else
+    let g:platform = 'LINUX'
+  end
+endif
+
 " --- BASE REMAPS ---
 
 " For now, set leaders to be the same
@@ -5,7 +17,11 @@ let mapleader = " "
 let maplocalleader = " m"
 
 " Shortcut for opening this init.vim
-noremap <LEADER>fvc :e $LOCALAPPDATA/nvim/init.vim<CR>
+if g:platform == 'WINDOWS'
+  noremap <LEADER>fvc :e $LOCALAPPDATA/nvim/init.vim<CR>
+else
+  noremap <LEADER>fvc :e ~/.config/nvim/init.vim<CR>
+endif
 
 " Window movement easier movement
 noremap <LEADER>w <C-w>
