@@ -26,6 +26,7 @@ Enjoy :)
 
 1. `git clone` this repository into the NVIM config location
     - On Windows: `~/AppData/Local/nvim`
+    - On Linux: `~/.config/nvim`
 1. Install [VimPlug](https://github.com/junegunn/vim-plug) within the repo
    (nvim config) directory
     - See `install-vim-plug.ps1` or `install-vim-plug.sh` in this repo for easy
